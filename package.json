@@ -1,0 +1,38 @@
+{
+  "name": "night-sky",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "지금 내 위치에서 폰을 든 방향의 실제 밤하늘을 보여주는 웹 앱",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview --port 4173 --strictPort",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "e2e": "vite build && playwright test",
+    "size": "tsx scripts/check-size.ts",
+    "check": "tsc --noEmit && vitest run && vite build && tsx scripts/check-size.ts && playwright test",
+    "data:stars": "tsx scripts/build-stars.ts",
+    "data:constellations": "tsx scripts/build-constellations.ts",
+    "data:milkyway": "tsx scripts/build-milkyway.ts",
+    "data": "npm run data:stars && npm run data:constellations && npm run data:milkyway",
+    "fixtures": "python scripts/reference/make_fixtures.py",
+    "og": "tsx scripts/make-og.ts"
+  },
+  "dependencies": {
+    "astronomy-engine": "^2.1.19",
+    "three": "^0.187.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.65.1",
+    "@types/node": "^26.6.6",
+    "@types/three": "^0.187.0",
+    "sharp": "^0.35.5",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.8",
+    "vitest": "^5.1.0"
+  }
+}

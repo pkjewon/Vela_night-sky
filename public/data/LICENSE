@@ -1,0 +1,39 @@
+public/data/ 폴더의 데이터 라이선스
+====================================
+
+이 폴더의 파일은 앱 코드(MIT)와 별개로, 아래 원본 데이터의 라이선스를 따릅니다.
+
+1. stars.bin, star-names.json
+   원본: HYG Database v4.2 (David Nash, https://codeberg.org/astronexus/hyg)
+   라이선스: Creative Commons Attribution-ShareAlike 4.0 (CC BY-SA 4.0)
+             https://creativecommons.org/licenses/by-sa/4.0/
+   가공 내용: 6.5등급보다 밝은 별 8,920개를 골라, 고유운동을 2026.5년 기준으로 적용하고
+             위치·등급·색지수·거리를 작은 이진 파일로 바꿈 (scripts/build-stars.ts).
+   이 가공본도 CC BY-SA 4.0으로 배포합니다.
+
+2. constellations.json
+   원본: d3-celestial (Olaf Frohn, https://github.com/ofrohn/d3-celestial) 의 constellations.lines.json
+   라이선스: BSD-3-Clause (아래 원문)
+   가공 내용: 선의 꼭짓점을 HYG 별 번호에 맞추고, 그림 순위·이름 위치를 덧붙임
+             (scripts/build-constellations.ts).
+
+3. names-ko.json
+   한글 별자리 이름은 한국천문학회 표준 이름을 한국어 위키백과 목록과 대조해 적었고,
+   밝은 별 이름은 널리 쓰이는 외래어 표기입니다. 이름 목록은 사실 정보로 보고 있으나
+   (추측) 출처를 함께 남깁니다.
+
+----------------------------------------------------------------------
+d3-celestial 라이선스 원문 (BSD-3-Clause)
+----------------------------------------------------------------------
+Copyright (c) 2015, Olaf Frohn
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.

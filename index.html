@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
+    <title>진짜 밤하늘</title>
+    <meta name="description" content="지금 내 위치에서 폰을 든 방향의 실제 밤하늘. 별·별자리·달·행성을 설치 없이 바로 볼 수 있어요." />
+    <meta name="theme-color" content="#05070f" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="진짜 밤하늘" />
+
+    <!-- 카톡·메신저 미리보기 카드 (og-image는 앱의 실제 화면을 찍은 것) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="진짜 밤하늘" />
+    <meta property="og:title" content="진짜 밤하늘 — 지금 내 머리 위의 별" />
+    <meta property="og:description" content="폰을 하늘로 들면 그 방향의 진짜 별·별자리·달·행성이 보여요. 설치 없이 바로." />
+    <meta property="og:url" content="https://pkjewon.github.io/night-sky/" />
+    <meta property="og:image" content="https://pkjewon.github.io/night-sky/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="ko_KR" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <canvas id="sky" aria-label="밤하늘"></canvas>
+    <div id="labels" aria-hidden="true"></div>
+    <div id="ring" hidden></div>
+
+    <header id="topbar" hidden>
+      <span id="place"></span><span class="sep">·</span><span id="clock"></span>
+    </header>
+
+    <div id="aurora-badge" hidden>
+      <strong>오로라 꿈 모드</strong>
+      <span>한국에선 거의 볼 수 없는 상상 모드예요</span>
+    </div>
+
+    <div id="toast" role="status" aria-live="polite" hidden></div>
+
+    <section id="info-card" hidden aria-live="polite">
+      <button id="info-close" class="icon-btn" aria-label="닫기">✕</button>
+      <h2 id="info-name"></h2>
+      <p id="info-sub"></p>
+      <p id="info-bright"></p>
+      <p id="info-dist"></p>
+    </section>
+
+    <nav id="bottombar" hidden>
+      <button id="btn-tonight" class="pill accent" hidden>오늘 밤으로 보기</button>
+      <button id="btn-now" class="pill" hidden>지금으로 돌아가기</button>
+      <div class="bar-row">
+        <button id="btn-mode" class="pill" aria-pressed="false">손가락으로 보는 중</button>
+        <button id="btn-settings" class="pill">설정</button>
+        <button id="btn-about" class="pill round" aria-label="정보와 출처">ⓘ</button>
+      </div>
+    </nav>
+
+    <section id="settings" class="sheet" hidden aria-label="설정">
+      <div class="sheet-head">
+        <h2>설정</h2>
+        <button id="settings-close" class="icon-btn" aria-label="닫기">✕</button>
+      </div>
+      <div class="sheet-body">
+        <label class="row"><span>별자리 선</span><input type="checkbox" data-setting="lines" /></label>
+        <label class="row"><span>이름 (별자리·행성)</span><input type="checkbox" data-setting="names" /></label>
+        <label class="row"><span>은하수</span><input type="checkbox" data-setting="milkyway" /></label>
+        <label class="row"><span>별 반짝임</span><input type="checkbox" data-setting="twinkle" /></label>
+        <label class="row"><span>별똥별</span><input type="checkbox" data-setting="meteors" /></label>
+        <label class="row">
+          <span>오로라 꿈 모드<small>실제가 아닌 상상 모드</small></span>
+          <input type="checkbox" data-setting="aurora" />
+        </label>
+        <label class="row">
+          <span>폰 방향으로 보기<small>끄면 손가락으로 둘러보기</small></span>
+          <input type="checkbox" data-setting="sensor" />
+        </label>
+        <label class="row">
+          <span>위치</span>
+          <select id="city-select" aria-label="위치 선택"></select>
+        </label>
+        <div class="row sub">
+          <span>나침반 보정<small id="calib-value">센서 모드에서 좌우로 드래그해 맞춰요</small></span>
+          <button id="calib-reset" class="pill small">초기화</button>
+        </div>
+        <label class="row sub">
+          <span>진짜 북쪽으로 보정<small>나침반 북쪽과 진짜 북쪽의 차이(한국 약 8°)</small></span>
+          <input type="checkbox" data-setting="declination" />
+        </label>
+      </div>
+    </section>
+
+    <section id="about" class="sheet tall" hidden aria-label="정보와 출처">
+      <div class="sheet-head">
+        <h2>진짜 밤하늘</h2>
+        <button id="about-close" class="icon-btn" aria-label="닫기">✕</button>
+      </div>
+      <div class="sheet-body prose">
+        <p>지금 이 시간, 이 위치에서 보이는 실제 하늘이에요. 별·달·행성의 위치는 천문 계산으로 구한 진짜 위치예요.</p>
+        <p class="note"><strong>오로라는 상상 모드</strong>예요. 한국에서는 거의 볼 수 없고, 실제 오로라 예보와는 관계없는 연출이에요. 별똥별도 분위기를 위한 연출이에요.</p>
+        <p class="note">위치는 이 기기 안에서 계산에만 쓰이고, 어디에도 보내거나 저장하지 않아요. 서버도, 방문자 추적도 없어요.</p>
+        <h3>데이터와 출처</h3>
+        <ul id="credits">
+          <li><strong>별 데이터</strong> — <a href="https://codeberg.org/astronexus/hyg" target="_blank" rel="noopener">HYG Database v4.2</a> (David Nash), CC BY-SA 4.0. 6.5등급까지 골라 가공함.</li>
+          <li><strong>별자리 선</strong> — <a href="https://github.com/ofrohn/d3-celestial" target="_blank" rel="noopener">d3-celestial</a> © 2015 Olaf Frohn, BSD-3-Clause.</li>
+          <li><strong>은하수 그림</strong> — <a href="https://sci.esa.int/web/gaia/-/60196-gaia-s-sky-in-colour-equirectangular-projection" target="_blank" rel="noopener">Gaia's sky in colour</a>, ESA/Gaia/DPAC, CC BY-SA 3.0 IGO. 좌표를 바꾸고 흐리게 가공함.</li>
+          <li><strong>천문 계산</strong> — <a href="https://github.com/cosinekitty/astronomy" target="_blank" rel="noopener">Astronomy Engine</a> (Don Cross), MIT.</li>
+          <li><strong>3D 화면</strong> — <a href="https://threejs.org" target="_blank" rel="noopener">Three.js</a>, MIT.</li>
+          <li><strong>한글 별자리 이름</strong> — 한국천문학회 표준 이름 (<a href="https://ko.wikipedia.org/wiki/국제천문연맹_지정_별자리" target="_blank" rel="noopener">위키백과 목록</a>과 대조).</li>
+          <li><strong>정확도 검증</strong> — <a href="https://rhodesmill.org/skyfield/" target="_blank" rel="noopener">Skyfield</a> + JPL DE421 (테스트용, 앱에는 들어 있지 않음).</li>
+        </ul>
+        <p class="small">가공한 별·은하수 데이터는 원본과 같은 CC BY-SA 라이선스로, 앱 코드는 MIT 라이선스로 공개돼 있어요. · <a href="https://github.com/pkjewon/night-sky" target="_blank" rel="noopener">GitHub</a></p>
+        <p class="small">만든 사람: 재원 (Claude Code와 함께)</p>
+      </div>
+    </section>
+
+    <section id="start">
+      <div class="start-inner">
+        <p class="eyebrow">지금 내 머리 위의</p>
+        <h1>진짜 밤하늘</h1>
+        <p class="lead">폰을 하늘로 들면<br />그 방향의 실제 별이 보여요</p>
+        <button id="btn-start" class="pill accent big">하늘 보기 시작</button>
+        <p class="hint">방향과 위치를 물어보면 <strong>허용</strong>을 눌러 주세요.<br />허용하지 않아도 서울 기준으로 볼 수 있어요.</p>
+        <p class="privacy">위치는 내 폰 안에서만 쓰이고 어디에도 저장되지 않아요</p>
+      </div>
+    </section>
+
+    <section id="fallback" hidden role="alert">
+      <div class="start-inner">
+        <h1 id="fallback-title">하늘을 불러오지 못했어요</h1>
+        <p class="lead" id="fallback-text"></p>
+        <button id="btn-retry" class="pill accent big">다시 시도</button>
+      </div>
+    </section>
+
+    <div id="loading">밤하늘 준비 중…</div>
+    <pre id="debug" hidden></pre>
+    <div id="table" hidden></div>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

@@ -1,0 +1,12 @@
+public/textures/ 폴더의 데이터 라이선스
+========================================
+
+milkyway.webp
+  원본: "Gaia's sky in colour" (equirectangular projection)
+        https://sci.esa.int/web/gaia/-/60196-gaia-s-sky-in-colour-equirectangular-projection
+  출처 표기: ESA/Gaia/DPAC, CC BY-SA 3.0 IGO
+  라이선스: Creative Commons Attribution-ShareAlike 3.0 IGO
+            https://creativecommons.org/licenses/by-sa/3.0/igo/
+  가공함: 은하 좌표를 적도 좌표로 바꾸고, 밝은 별을 지우고(중앙값 필터), 흐리게 하고,
+          채도·밝기를 조절해 1024x512 WebP로 줄임 (scripts/build-milkyway.ts).
+  이 가공본도 CC BY-SA 3.0 IGO로 배포합니다.
