@@ -22,7 +22,7 @@ test.describe('시작 화면', () => {
   test('버튼 하나와 위치 안내 한 줄이 있다', async ({ page }) => {
     await gotoSky(page);
     await expect(page.locator('#start')).toBeVisible();
-    await expect(page.locator('#start h1')).toHaveText('진짜 밤하늘');
+    await expect(page.locator('#start h1')).toHaveText('Vela');
     await expect(page.locator('#start button')).toHaveCount(1);
     await expect(page.locator('#btn-start')).toHaveText('하늘 보기 시작');
     await expect(page.locator('#start .privacy')).toHaveText('위치는 내 폰 안에서만 쓰이고 어디에도 저장되지 않아요');

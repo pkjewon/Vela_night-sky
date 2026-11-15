@@ -17,7 +17,7 @@ async function main() {
     if (m.type() === 'error' || m.type() === 'warning') console.log(`[${m.type()}] ${m.text()}`);
   });
   page.on('pageerror', (e) => console.log(`[pageerror] ${e.message}`));
-  await page.goto(`http://localhost:4173/night-sky/${query ? `?${query}` : ''}`);
+  await page.goto(`http://localhost:4173/Vela_night-sky/${query ? `?${query}` : ''}`);
   await page.waitForFunction(() => document.documentElement.dataset.ready === 'true', undefined, { timeout: 30_000 });
   await page
     .waitForFunction(() => document.documentElement.dataset.milkyway === 'ready', undefined, { timeout: 8000 })

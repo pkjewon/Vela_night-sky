@@ -1,4 +1,4 @@
-# main에 올리면 GitHub Pages(https://pkjewon.github.io/night-sky/)로 배포
+# main에 올리면 GitHub Pages(https://pkjewon.github.io/Vela_night-sky/)로 배포
 name: Deploy
 on:
   push:

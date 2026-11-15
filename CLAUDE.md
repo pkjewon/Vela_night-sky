@@ -1,7 +1,7 @@
-# CLAUDE.md — 진짜 밤하늘 + 오로라
+# CLAUDE.md — Vela (진짜 밤하늘 + 오로라)
 
 실제 별 데이터(HYG v4.2)로 지금 시간·내 위치의 밤하늘을 보여주는 웹 앱. 친구들이 카톡 링크로 아이폰에서 열고, 폰을 하늘로 들면 그 방향의 별이 보인다. 컴퓨터에서는 마우스 드래그.
-배포 주소: https://pkjewon.github.io/night-sky/ (vite base `/night-sky/`)
+배포 주소: https://pkjewon.github.io/Vela_night-sky/ (vite base `/Vela_night-sky/`)
 
 새 대화를 시작하면 **docs/PROGRESS.md부터 읽고** 시작한다. 전체 계획은 docs/PLAN.md.
 

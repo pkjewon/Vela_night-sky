@@ -1,8 +1,8 @@
-# 진짜 밤하늘
+# Vela — 진짜 밤하늘
 
 폰을 하늘로 들면, 지금 그 방향에 있는 **진짜 별·별자리·달·행성**이 보이는 웹 앱. 설치 없이 링크만 열면 돼요.
 
-**👉 https://pkjewon.github.io/night-sky/**
+**👉 https://pkjewon.github.io/Vela_night-sky/**
 
 ![여름밤 은하수와 별자리](public/og-image.jpg)
 
@@ -26,7 +26,7 @@
 | `seed` | `7` | 별똥별 등 연출을 고정한 한 장면 |
 | `debug` | `1` / `table` | 디버그 패널 / 천체 위치 표 |
 
-예: [쌍둥이자리 유성우 무렵 겨울밤](https://pkjewon.github.io/night-sky/?t=2026-12-14T22:00%2B09:00&az=125&alt=30)
+예: [쌍둥이자리 유성우 무렵 겨울밤](https://pkjewon.github.io/Vela_night-sky/?t=2026-12-14T22:00%2B09:00&az=125&alt=30)
 
 ## 정확도
 

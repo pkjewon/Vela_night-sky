@@ -30,8 +30,8 @@ Stellarium은 기본으로 굴절을 넣으므로 "굴절 포함" 값과 비교�
 
 ### 장면 1 — 겨울밤 오리온자리 (2026-12-14 22:00)
 
-- 앱: https://pkjewon.github.io/night-sky/?t=2026-12-14T22:00%2B09:00&lat=37.76&lon=126.78&az=125&alt=30&fov=70
-- 표: https://pkjewon.github.io/night-sky/?t=2026-12-14T22:00%2B09:00&lat=37.76&lon=126.78&debug=table
+- 앱: https://pkjewon.github.io/Vela_night-sky/?t=2026-12-14T22:00%2B09:00&lat=37.76&lon=126.78&az=125&alt=30&fov=70
+- 표: https://pkjewon.github.io/Vela_night-sky/?t=2026-12-14T22:00%2B09:00&lat=37.76&lon=126.78&debug=table
 
 | 천체 | 앱 방위각 | 앱 고도(굴절 포함) | Stellarium 방위각 | Stellarium 고도 | 차이 |
 | --- | --- | --- | --- | --- | --- |
@@ -41,8 +41,8 @@ Stellarium은 기본으로 굴절을 넣으므로 "굴절 포함" 값과 비교�
 
 ### 장면 2 — 여름밤 은하수 (2026-08-12 22:30)
 
-- 앱: https://pkjewon.github.io/night-sky/?t=2026-08-12T22:30%2B09:00&lat=37.76&lon=126.78&az=170&alt=35&fov=95
-- 표: https://pkjewon.github.io/night-sky/?t=2026-08-12T22:30%2B09:00&lat=37.76&lon=126.78&debug=table
+- 앱: https://pkjewon.github.io/Vela_night-sky/?t=2026-08-12T22:30%2B09:00&lat=37.76&lon=126.78&az=170&alt=35&fov=95
+- 표: https://pkjewon.github.io/Vela_night-sky/?t=2026-08-12T22:30%2B09:00&lat=37.76&lon=126.78&debug=table
 
 | 천체 | 앱 방위각 | 앱 고도 | Stellarium 방위각 | Stellarium 고도 | 차이 |
 | --- | --- | --- | --- | --- | --- |
@@ -52,8 +52,8 @@ Stellarium은 기본으로 굴절을 넣으므로 "굴절 포함" 값과 비교�
 
 ### 장면 3 — 달 (2026-12-20 20:00)
 
-- 앱: https://pkjewon.github.io/night-sky/?t=2026-12-20T20:00%2B09:00&lat=37.76&lon=126.78&az=144&alt=60&fov=40
-- 표: https://pkjewon.github.io/night-sky/?t=2026-12-20T20:00%2B09:00&lat=37.76&lon=126.78&debug=table
+- 앱: https://pkjewon.github.io/Vela_night-sky/?t=2026-12-20T20:00%2B09:00&lat=37.76&lon=126.78&az=144&alt=60&fov=40
+- 표: https://pkjewon.github.io/Vela_night-sky/?t=2026-12-20T20:00%2B09:00&lat=37.76&lon=126.78&debug=table
 
 | 천체 | 앱 방위각 | 앱 고도 | Stellarium 방위각 | Stellarium 고도 | 차이 |
 | --- | --- | --- | --- | --- | --- |

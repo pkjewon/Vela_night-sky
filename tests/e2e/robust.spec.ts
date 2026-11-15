@@ -121,14 +121,14 @@ test.describe('공유와 출처', () => {
   test('카톡 미리보기 카드용 태그(제목·설명·1200x630 사진)가 있다', async ({ page }) => {
     await page.goto('./');
     const meta = (property: string) => page.locator(`meta[property="${property}"]`).getAttribute('content');
-    expect(await meta('og:title')).toContain('진짜 밤하늘');
+    expect(await meta('og:title')).toContain('Vela');
     expect((await meta('og:description'))!.length).toBeGreaterThan(10);
-    expect(await meta('og:image')).toBe('https://pkjewon.github.io/night-sky/og-image.jpg');
-    expect(await meta('og:url')).toBe('https://pkjewon.github.io/night-sky/');
+    expect(await meta('og:image')).toBe('https://pkjewon.github.io/Vela_night-sky/og-image.jpg');
+    expect(await meta('og:url')).toBe('https://pkjewon.github.io/Vela_night-sky/');
     expect(await meta('og:image:width')).toBe('1200');
     expect(await meta('og:image:height')).toBe('630');
     expect(await page.locator('meta[name="theme-color"]').getAttribute('content')).toBeTruthy();
-    await expect(page).toHaveTitle('진짜 밤하늘');
+    await expect(page).toHaveTitle('Vela');
     // 사진·아이콘 파일이 실제로 있다
     for (const path of ['og-image.jpg', 'favicon.svg', 'apple-touch-icon.png']) {
       const res = await page.request.get(`./${path}`);

@@ -15,7 +15,7 @@
 
 ## 0단계. 준비
 
-- **한 일**: Vite 8 + TypeScript 7(strict) + Three.js 0.187, Vitest 5, Playwright 1.65(Chromium, 데스크톱·모바일 390x844, 그래픽카드 없이 swiftshader로 그림). 스크립트 dev·build·test·e2e·size·check. `base: '/night-sky/'`. `.github/workflows/ci.yml`(푸시·PR마다 check), `deploy.yml`(main → GitHub Pages, actions/deploy-pages). CLAUDE.md·PLAN.md·ATTRIBUTION.md 작성.
+- **한 일**: Vite 8 + TypeScript 7(strict) + Three.js 0.187, Vitest 5, Playwright 1.65(Chromium, 데스크톱·모바일 390x844, 그래픽카드 없이 swiftshader로 그림). 스크립트 dev·build·test·e2e·size·check. `base: '/Vela_night-sky/'`. `.github/workflows/ci.yml`(푸시·PR마다 check), `deploy.yml`(main → GitHub Pages, actions/deploy-pages). CLAUDE.md·PLAN.md·ATTRIBUTION.md 작성.
 - **테스트 결과**: check 통과.
 - **스크린샷 확인**: 임시 화면 단계는 건너뜀.
 - **남은 문제**: GitHub Actions는 실제로 돌려보지 못함 (저장소에 아직 안 올림).
@@ -100,7 +100,7 @@
 ### 친구 폰 테스트 부탁 문구 (카톡용)
 
 ```text
-내가 만든 밤하늘 앱 테스트 좀 부탁해! → https://pkjewon.github.io/night-sky/?debug=1
+내가 만든 밤하늘 앱 테스트 좀 부탁해! → https://pkjewon.github.io/Vela_night-sky/?debug=1
 ① "하늘 보기 시작" 누르고 허용 2번
 ② 폰을 하늘로 들고 한 바퀴 천천히 돌아봐
 확인해 줄 것 3가지:
@@ -128,14 +128,10 @@
 
 ## 사용자가 할 일
 
-1. GitHub에 **공개(public)** 저장소 `night-sky` 만들기 (README 등 아무 파일도 추가하지 말고 빈 저장소로).
-2. 이 폴더에서:
-   ```bash
-   git remote add origin https://github.com/pkjewon/night-sky.git
-   git push -u origin main --tags
-   ```
+1. ~~GitHub 저장소 만들기~~ → https://github.com/pkjewon/Vela_night-sky (2026-11-15 앱 이름을 **Vela**로 바꿈, 주소도 /Vela_night-sky/)
+2. ~~코드 올리기~~ → main과 태그를 올림 (GitHub이 만든 README 첫 커밋은 덮어쓰지 않고 합침).
 3. 저장소 Settings → Pages → Source를 **GitHub Actions**로.
-4. Actions 탭에서 CI·Deploy가 초록불인지 확인 → https://pkjewon.github.io/night-sky/ 열기.
+4. Actions 탭에서 CI·Deploy가 초록불인지 확인 → https://pkjewon.github.io/Vela_night-sky/ 열기.
 5. 위 "아이폰 실기 테스트 체크리스트" 해 보고 결과 알려 주기 (특히 4번 편각 보정).
 6. 카톡 "나와의 채팅"에 링크를 보내 미리보기 카드(사진·제목)가 뜨는지 확인.
 7. docs/ACCURACY.md의 3개 장면을 Stellarium으로 비교해 빈칸 채우기.

@@ -17,7 +17,7 @@ const page = await browser.newPage({
   locale: 'ko-KR',
   timezoneId: 'Asia/Seoul',
 });
-await page.goto(`http://localhost:4173/night-sky/?${query}`);
+await page.goto(`http://localhost:4173/Vela_night-sky/?${query}`);
 await page.waitForFunction(() => document.documentElement.dataset.ready === 'true', undefined, { timeout: 30_000 });
 await page.waitForFunction(() => document.documentElement.dataset.milkyway === 'ready', undefined, { timeout: 10_000 });
 await page.waitForTimeout(600);
@@ -32,7 +32,7 @@ await page.addStyleTag({
 await page.evaluate(() => {
   const div = document.createElement('div');
   div.id = 'og-title';
-  div.innerHTML = '<h1>진짜 밤하늘</h1><p>폰을 하늘로 들면, 그 방향의 진짜 별이 보여요</p>';
+  div.innerHTML = '<h1>Vela</h1><p>폰을 하늘로 들면, 그 방향의 진짜 별이 보여요</p>';
   document.body.appendChild(div);
   // 제목과 겹치는 하늘 이름표는 숨긴다
   const box = div.getBoundingClientRect();

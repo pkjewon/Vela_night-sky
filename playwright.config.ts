@@ -10,7 +10,7 @@ export default defineConfig({
   retries: process.env.CI ? 1 : 0,
   reporter: [['list']],
   use: {
-    baseURL: `http://localhost:${PORT}/night-sky/`,
+    baseURL: `http://localhost:${PORT}/Vela_night-sky/`,
     browserName: 'chromium',
     locale: 'ko-KR',
     timezoneId: 'Asia/Seoul',
@@ -27,7 +27,7 @@ export default defineConfig({
   webServer: {
     // dist는 `npm run e2e` / `npm run check`가 먼저 빌드해 둔다.
     command: `npx vite preview --port ${PORT} --strictPort`,
-    url: `http://localhost:${PORT}/night-sky/`,
+    url: `http://localhost:${PORT}/Vela_night-sky/`,
     reuseExistingServer: !process.env.CI,
     timeout: 120_000,
   },
